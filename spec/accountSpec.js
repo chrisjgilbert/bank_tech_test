@@ -67,7 +67,7 @@ describe("account", function() {
   describe("printStatement", function() {
     it("tells the statement to print", function() {
       injectedAccount.printStatement()
-      expect(statement.print).toHaveBeenCalled()
+      expect(statement.print).toHaveBeenCalledWith(injectedAccount.getHistory())
     })
   })
 
