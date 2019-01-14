@@ -16,4 +16,12 @@ describe("transaction", function() {
     expect(credit.showAmount()).toEqual(10)
   })
 
+  it("has a date", function() {
+    var dateGenerator = jasmine.createSpyObj('dateGenerator', {
+      "getFullDate": "14/01/2019"
+    });
+    var debit = new Transaction("debit", 5, dateGenerator)
+    expect(debit.showDate()).toEqual("14/01/2019")
+  })
+
 })
