@@ -1,14 +1,14 @@
 (function(exports) {
 
-  function AccountHistory() {
+  function History() {
     this._log = []
   }
 
-  AccountHistory.prototype = {
+  History.prototype = {
     showLog: function() {
       return this._log
     }
   }
 
-  exports.AccountHistory = AccountHistory
+  exports.History = History
 })(this)
