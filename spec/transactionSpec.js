@@ -17,12 +17,23 @@ describe("transaction", function() {
   })
 
 describe("showDate", function() {
+
+  var transaction;
+  var dateGenerator = jasmine.createSpyObj('dateGenerator', {
+    "getFullDate": "14/01/2019"
+  });
+
+  beforeEach(function() {
+    transaction = new Transaction("debit", 5, dateGenerator)
+  })
+
   it("returns the date of transaction", function() {
-    var dateGenerator = jasmine.createSpyObj('dateGenerator', {
-      "getFullDate": "14/01/2019"
-    });
-    var debit = new Transaction("debit", 5, dateGenerator)
-    expect(debit.showDate()).toEqual("14/01/2019")
+    expect(transaction.showDate()).toEqual("14/01/2019")
+  })
+
+  it("calls on the injected dateGenerator to return the date", function() {
+    transaction.showDate()
+    expect(dateGenerator.getFullDate).toHaveBeenCalled()
   })
 })
 
