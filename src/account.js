@@ -1,10 +1,11 @@
 "use strict";
 (function(exports) {
 
-  function Account(dateGenerator = new DateGenerator) {
+  function Account(dateGenerator = new DateGenerator, statement = new Statement) {
     this._balance = 0
     this._history = []
     this._dateGenerator = dateGenerator
+    this._statement = statement
   }
 
   Account.prototype = {
@@ -38,6 +39,10 @@
 
     getHistory: function() {
       return this._history
+    },
+
+    printStatement: function() {
+      this._statement.print()
     },
 
     _addToHistory: function(transaction) {
