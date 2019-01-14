@@ -34,6 +34,11 @@ describe("account", function() {
       expect(injectedAccount.getHistory()).toEqual([])
     })
 
+    it("adds deposit to history", function() {
+      injectedAccount.deposit(10)
+      expect(injectedAccount.getHistory()).toEqual([10])
+    })
+
     it("adds date to history", function() {
       injectedAccount.deposit(10)
       expect(dateGenerator.getFullDate).toHaveBeenCalled()
