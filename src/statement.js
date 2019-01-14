@@ -3,8 +3,8 @@
   function Statement() {
     this._header = [
       "DATE",
-      "DEBIT",
       "CREDIT",
+      "DEBIT",  
       "BALANCE"
     ]
   }
@@ -16,7 +16,7 @@
         console.log(transaction.join(" || "))
       })
     }
-  } 
+  }
 
   exports.Statement = Statement
 })(this)
