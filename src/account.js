@@ -1,7 +1,7 @@
 (function(exports) {
 
   function Account() {
-    this.balance = 0;
+    this.balance = 0
   }
 
   Account.prototype = {
@@ -19,4 +19,4 @@
   }
 
   exports.Account = Account
-})(this);
+})(this)
