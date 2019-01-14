@@ -18,4 +18,8 @@ describe("dateGenerator", function() {
     expect(dateGenerator.getYear()).toEqual(2019)
   })
 
+  it("returns full date", function() {
+    expect(dateGenerator.getFullDate()).toEqual("14/01/2019")
+  })
+
 })
