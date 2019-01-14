@@ -42,7 +42,7 @@
     },
 
     printStatement: function() {
-      this._statement.print()
+      this._statement.print(this.getHistory())
     },
 
     _addToHistory: function(transaction) {
