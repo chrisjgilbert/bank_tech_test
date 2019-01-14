@@ -1,8 +1,10 @@
 "use strict";
 (function(exports) {
 
+  var DEFAULT_BALANCE = 0
+
   function Account(dateGenerator = new DateGenerator, statement = new Statement) {
-    this._balance = 0
+    this._balance = DEFAULT_BALANCE
     this._history = []
     this._dateGenerator = dateGenerator
     this._statement = statement
