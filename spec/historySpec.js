@@ -18,7 +18,7 @@ describe("accountHistory", function() {
   it("adds a transaction to the log", function() {
     var transaction = ["01/10/2018", "", "500", "1000"]
     history.add(transaction)
-    expect(history.log).toContaine(transaction)
+    expect(history._log).toContain(transaction)
   })
 
 })
