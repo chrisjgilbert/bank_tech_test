@@ -4,12 +4,14 @@ describe("account", function() {
   var account;
   var dateGenerator;
   var injectedAccount;
+  var statement;
 
   beforeEach(function() {
     dateGenerator = jasmine.createSpyObj('dateGenerator', {
         'getFullDate': '01/01/1998'
     });
-    injectedAccount = new Account(dateGenerator)
+    statement = jasmine.createSpyObj('statement', ['print']);
+    injectedAccount = new Account(dateGenerator, statement)
     account = new Account()
   })
 
@@ -51,7 +53,7 @@ describe("account", function() {
 
     it("adds withdraw amount, date, empty string and balance to history", function() {
       injectedAccount.withdraw(100)
-      expect(injectedAccount.getHistory()).toEqual([["01/01/1998", "", 100, -100]])
+      expect(injectedAccount.getHistory()).toEqual([["01/01/1998", "",  100, -100]])
     })
   })
 
@@ -59,6 +61,13 @@ describe("account", function() {
     it("returns the current balance", function() {
       account.deposit(5)
       expect(account.showBalance()).toEqual(5)
+    })
+  })
+
+  describe("printStatement", function() {
+    it("tells the statement to print", function() {
+      injectedAccount.printStatement()
+      expect(statement.print).toHaveBeenCalled()
     })
   })
 
