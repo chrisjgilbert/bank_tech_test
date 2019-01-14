@@ -10,4 +10,8 @@ describe("dateGenerator", function() {
     expect(dateGenerator.getDay()).toEqual(14)
   })
 
+  it("returns the current month", function() {
+    expect(dateGenerator.getMonth()).toEqual(1)
+  })
+
 })
