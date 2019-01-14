@@ -6,13 +6,8 @@ describe("transaction", function() {
     expect(transaction instanceof Transaction).toBeTruthy()
   })
 
-  it("has a type", function() {
-    var debit = new Transaction("debit")
-    expect(debit.showType()).toEqual("debit")
-  })
-
   it("has an amount", function() {
-    var credit = new Transaction("credit", 10)
+    var credit = new Transaction(10)
     expect(credit.showAmount()).toEqual(10)
   })
 
@@ -24,7 +19,7 @@ describe("transaction", function() {
     });
 
     beforeEach(function() {
-      transaction = new Transaction("debit", 5, dateGenerator)
+      transaction = new Transaction(5, dateGenerator)
     })
 
     it("returns the date of transaction", function() {
