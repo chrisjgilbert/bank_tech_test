@@ -1,10 +1,12 @@
 (function(exports) {
 
-  function DateGenerator() {}
+  function DateGenerator(date = new Date) {
+    this.date = date
+  }
 
   DateGenerator.prototype = {
     getDay: function() {
-      return new Date().getDate()
+      return this.date.getDate()
     }
   }
 
