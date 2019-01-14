@@ -1,3 +1,4 @@
+"use strict";
 describe("accountHistory", function() {
 
   var history;
