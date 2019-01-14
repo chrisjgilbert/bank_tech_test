@@ -19,6 +19,10 @@
 
     showBalance: function() {
       return this._balance
+    },
+
+    getHistory: function() {
+      return this._history
     }
   }
 
