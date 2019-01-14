@@ -1,6 +1,6 @@
 (function(exports) {
 
-  function Printer() {
+  function Statement() {
     this._header = [
       "DATE",
       "DEBIT",
@@ -9,11 +9,11 @@
     ]
   }
 
-  Printer.prototype = {
+  Statement.prototype = {
     showHeader: function() {
       return this._header;
     }
   }
 
-  exports.Printer = Printer
+  exports.Statement = Statement
 })(this)

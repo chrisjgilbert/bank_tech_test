@@ -1,14 +1,14 @@
 "use strict";
 describe("printer", function() {
 
-  var printer;
+  var statement;
 
   beforeEach(function() {
-    printer = new Printer()
+    statement = new Statement()
   })
 
   it("stores the statement header", function() {
-    expect(printer.showHeader()).toEqual(["DATE", "DEBIT", "CREDIT", "BALANCE"])
+    expect(statement.showHeader()).toEqual(["DATE", "DEBIT", "CREDIT", "BALANCE"])
   })
 
 })
