@@ -24,7 +24,7 @@ describe("account", function() {
     beforeEach(function() {
       history = jasmine.createSpyObj('history', ['add'])
       dateGenerator = jasmine.createSpyObj('dateGenerator', ['getFullDate'])
-      injectedAccount = new Account(history)
+      injectedAccount = new Account(history, dateGenerator)
     })
 
     it("adds money to the balance", function() {
