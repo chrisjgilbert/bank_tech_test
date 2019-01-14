@@ -3,6 +3,7 @@
 
   function Account(dateGenerator = new DateGenerator) {
     this._balance = 0
+    this.history = []
     this._dateGenerator = dateGenerator
   }
 
