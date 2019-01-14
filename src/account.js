@@ -12,7 +12,8 @@
       this._balance += amount
       this.history.add(
         [
-          this._transaction.showDate()
+          this._transaction.showDate(),
+          this._transaction.showAmount()
         ]
       )
     },
