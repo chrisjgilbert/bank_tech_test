@@ -23,7 +23,7 @@ describe("account", function() {
 
     beforeEach(function() {
       history = jasmine.createSpyObj('history',['add']);
-      transaction = jasmine.createSpyObj('transaction', ['showDate'])
+      transaction = jasmine.createSpyObj('transaction', ['showDate', 'showAmount'])
       injectedAccount = new Account(history, transaction)
     })
 
@@ -40,6 +40,11 @@ describe("account", function() {
     it("adds the transaction date to the account history", function() {
       injectedAccount.deposit(5)
       expect(transaction.showDate).toHaveBeenCalled()
+    })
+
+    it("adds the transaction amount to the account history", function() {
+      injectedAccount.deposit(5)
+      expect(transaction.showAmount).toHaveBeenCalled()
     })
   })
 
