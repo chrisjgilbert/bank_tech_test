@@ -14,8 +14,11 @@
       return this._header;
     },
 
-    print: function(log) {
-      return log.flat(1).join(" || ")
+    print: function(history) {
+      console.log(this._header.join(" || "))
+      history.forEach(function(transaction) {
+        console.log(transaction.join(" || "))
+      })
     }
   }
 
