@@ -20,6 +20,13 @@ describe("account", function() {
       account.deposit(5)
       expect(account.showBalance()).toEqual(5)
     })
+
+    it("adds a transaction to the account history", function() {
+      var history = jasmine.createSpyObj('history', ['add'])
+      var accountWithHistory = new Account(history)
+      account.deposit(5)
+      expect(history.add).toHaveBeenCalled()
+    })
   })
 
   describe("withdraw", function() {
