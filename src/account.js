@@ -11,6 +11,10 @@
 
     withdraw: function(amount) {
       this.balance -= amount
+    },
+
+    showBalance: function() {
+      return this.balance
     }
   }
 
