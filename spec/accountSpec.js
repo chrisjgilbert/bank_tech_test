@@ -16,14 +16,21 @@ describe("account", function() {
   })
 
   describe("deposit", function() {
+
+    var history;
+    var injectedAccount;
+
+    beforeEach(function() {
+      history = jasmine.createSpyObj('history', ['add'])
+      injectedAccount = new Account(history)
+    })
+
     it("adds money to the balance", function() {
       account.deposit(5)
       expect(account.showBalance()).toEqual(5)
     })
 
     it("adds deposit to history", function() {
-      var history = jasmine.createSpyObj('history', ['add'])
-      var injectedAccount = new Account(history)
       injectedAccount.deposit(5)
       expect(history.add).toHaveBeenCalled()
     })
