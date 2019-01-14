@@ -22,6 +22,14 @@
 
     withdraw: function(amount) {
       this._balance -= amount
+      this._addToHistory(
+        [
+          this._dateGenerator.getFullDate(),
+          "",
+          amount,
+          this._balance
+        ]
+      )
     },
 
     showBalance: function() {

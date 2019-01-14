@@ -51,7 +51,7 @@ describe("account", function() {
 
     it("adds withdraw amount, date, empty string and balance to history", function() {
       injectedAccount.withdraw(100)
-      expect(injectedAccount.getHistory()).toEqual([["01/01/1998", 100, "", -100]])
+      expect(injectedAccount.getHistory()).toEqual([["01/01/1998", "", 100, -100]])
     })
   })
 
