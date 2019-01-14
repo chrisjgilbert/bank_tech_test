@@ -21,7 +21,9 @@ describe("account", function() {
     var injectedAccount;
 
     beforeEach(function() {
-      dateGenerator = jasmine.createSpyObj('dateGenerator', ['getFullDate'])
+      dateGenerator = jasmine.createSpyObj('dateGenerator', {
+          'getFullDate': '01/01/1998'
+      });
       injectedAccount = new Account(dateGenerator)
     })
 
@@ -34,14 +36,14 @@ describe("account", function() {
       expect(injectedAccount.getHistory()).toEqual([])
     })
 
-    it("adds deposit to history", function() {
-      injectedAccount.deposit(10)
-      expect(injectedAccount.getHistory()).toEqual([10])
-    })
-
     it("adds date to history", function() {
       injectedAccount.deposit(10)
       expect(dateGenerator.getFullDate).toHaveBeenCalled()
+    })
+
+    it("adds deposit and date to history", function() {
+      injectedAccount.deposit(20)
+      expect(injectedAccount.getHistory()).toEqual([["01/01/1998", 20]])
     })
   })
 
