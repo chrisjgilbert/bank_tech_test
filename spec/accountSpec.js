@@ -31,7 +31,7 @@ describe("account", function() {
     })
 
     it("has an empty history by default", function() {
-      expect(injectedAccount.history.length).toEqual(0)
+      expect(injectedAccount.getHistory()).toEqual([])
     })
 
     it("adds date to history", function() {
