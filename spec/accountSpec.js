@@ -20,13 +20,6 @@ describe("account", function() {
       account.deposit(5)
       expect(account.showBalance()).toEqual(5)
     })
-
-    it("creates a new transaction", function() {
-     transaction = spyOn(Transaction.prototype, 'new');
-     newAccount = new Account(transaction)
-     account.deposit(5)
-     expect(transaction.new).toHaveBeenCalled()
-    })
   })
 
   describe("withdraw", function() {

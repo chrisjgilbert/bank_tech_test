@@ -1,9 +1,8 @@
 "use strict";
 (function(exports) {
 
-  function Account(transaction = Transaction) {
+  function Account() {
     this._balance = 0
-    this._Transaction = transaction
   }
 
   Account.prototype = {
