@@ -12,6 +12,10 @@
   Statement.prototype = {
     showHeader: function() {
       return this._header;
+    },
+
+    print: function(log) {
+      return log.flat(1).join(" || ")
     }
   }
 

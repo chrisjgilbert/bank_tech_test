@@ -12,9 +12,9 @@ describe("printer", function() {
   })
 
   it("pretty prints out the statement", function() {
-    var log = [["14/01/2019", "0", "10", "0"]]
+    var log = [["14/01/2019", "", "10", "0"]]
     expect(statement.print(log)).toEqual(
-      "01/08/1988 || 10 || || 10"
+      "14/01/2019 ||  || 10 || 0"
     )
   })
 
