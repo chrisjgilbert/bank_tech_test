@@ -15,7 +15,7 @@
     },
 
     withdraw: function(amount) {
-      if (this._balance - amount >= 0) {
+      if (this._hasEnoughMoneyToWithDraw(amount)) {
         this._balance -= amount
         this._addToHistory(this._addDebitTransaction(amount))
       } else {
@@ -47,6 +47,10 @@
         "",
         this._balance
       ]
+    },
+
+    _hasEnoughMoneyToWithDraw: function(amount) {
+      if (this._balance - amount >= 0) return true
     }
   }
 
