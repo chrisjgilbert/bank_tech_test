@@ -16,26 +16,25 @@ describe("transaction", function() {
     expect(credit.showAmount()).toEqual(10)
   })
 
-describe("showDate", function() {
+  describe("showDate", function() {
 
-  var transaction;
-  var dateGenerator = jasmine.createSpyObj('dateGenerator', {
-    "getFullDate": "14/01/2019"
-  });
+    var transaction;
+    var dateGenerator = jasmine.createSpyObj('dateGenerator', {
+      "getFullDate": "14/01/2019"
+    });
 
-  beforeEach(function() {
-    transaction = new Transaction("debit", 5, dateGenerator)
+    beforeEach(function() {
+      transaction = new Transaction("debit", 5, dateGenerator)
+    })
+
+    it("returns the date of transaction", function() {
+      expect(transaction.showDate()).toEqual("14/01/2019")
+    })
+
+    it("calls on the injected dateGenerator to return the date", function() {
+      transaction.showDate()
+      expect(dateGenerator.getFullDate).toHaveBeenCalled()
+    })
   })
-
-  it("returns the date of transaction", function() {
-    expect(transaction.showDate()).toEqual("14/01/2019")
-  })
-
-  it("calls on the injected dateGenerator to return the date", function() {
-    transaction.showDate()
-    expect(dateGenerator.getFullDate).toHaveBeenCalled()
-  })
-})
-
 
 })
