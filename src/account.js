@@ -1,20 +1,20 @@
 (function(exports) {
 
   function Account() {
-    this.balance = 0
+    this._balance = 0
   }
 
   Account.prototype = {
     deposit: function(amount) {
-      this.balance += amount
+      this._balance += amount
     },
 
     withdraw: function(amount) {
-      this.balance -= amount
+      this._balance -= amount
     },
 
     showBalance: function() {
-      return this.balance
+      return this._balance
     }
   }
 
