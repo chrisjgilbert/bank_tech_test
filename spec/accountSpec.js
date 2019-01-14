@@ -18,10 +18,12 @@ describe("account", function() {
   describe("deposit", function() {
 
     var history;
+    var dateGenerator;
     var injectedAccount;
 
     beforeEach(function() {
       history = jasmine.createSpyObj('history', ['add'])
+      dateGenerator = jasmine.createSpyObj('dateGenerator', ['getFullDate'])
       injectedAccount = new Account(history)
     })
 
@@ -33,6 +35,11 @@ describe("account", function() {
     it("adds deposit to history", function() {
       injectedAccount.deposit(5)
       expect(history.add).toHaveBeenCalled()
+    })
+
+    it("adds date to history", function() {
+      injectedAccount.deposit(10)
+      expect(dateGenerator.getFullDate).toHaveBeenCalled()
     })
   })
 
