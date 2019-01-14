@@ -17,4 +17,11 @@ describe("account", function() {
     })
   })
 
+  describe("withdraw", function() {
+    it("deducts money from the balance", function() {
+      account.withdraw(5)
+      expect(account.balance).toEqual(-5)
+    })
+  })
+
 })
