@@ -10,5 +10,8 @@ describe("accountHistory", function() {
     expect(accountHistory instanceof AccountHistory).toBeTruthy();
   })
 
+  it("has an empty log by default", function() {
+    expect(accountHistory.showLog()).toEqual([])
+  })
 
 })
