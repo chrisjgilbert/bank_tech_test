@@ -15,8 +15,12 @@
     },
 
     withdraw: function(amount) {
-      this._balance -= amount
-      this._addToHistory(this._addDebitTransaction(amount))
+      if (this._balance - amount >= 0) {
+        this._balance -= amount
+        this._addToHistory(this._addDebitTransaction(amount))
+      } else {
+        throw new Error('You dont have enough money in your account!')
+      }
     },
 
     printStatement: function() {

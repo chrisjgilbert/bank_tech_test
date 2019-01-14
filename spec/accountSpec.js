@@ -47,13 +47,18 @@ describe("account", function() {
 
   describe("withdraw", function() {
     it("deducts money from the balance", function() {
+      account.deposit(50)
       account.withdraw(5)
-      expect(account._balance).toEqual(-5)
+      expect(account._balance).toEqual(45)
     })
 
     it("adds withdraw amount, date, empty string and balance to history", function() {
-      injectedAccount.withdraw(100)
-      expect(injectedAccount._history).toEqual([["01/01/1998", "",  100, -100]])
+      injectedAccount.withdraw(0)
+      expect(injectedAccount._history).toEqual([["01/01/1998", "",  0, 0]])
+    })
+
+    it("wont let your balance go below 0", function() {
+      expect(function(){ injectedAccount.withdraw(10);}).toThrowError('You dont have enough money in your account!');
     })
   })
 
