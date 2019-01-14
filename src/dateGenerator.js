@@ -17,6 +17,15 @@
       return this._date.getFullYear()
     },
 
+    _formatMonth: function() {
+      var month = this._getMonth()
+      if (month < 10) {
+        return "0" + this._getMonth()
+      } else {
+        return this._getMonth()
+      }
+    },
+
     getFullDate: function() {
       return [
         this._getDay(),
@@ -25,15 +34,6 @@
         "/",
         this._getYear()
       ].join("")
-    },
-
-    _formatMonth: function() {
-      var month = this._getMonth()
-      if (month < 10) {
-        return "0" + this._getMonth()
-      } else {
-        return this._getMonth()
-      }
     }
   }
 
