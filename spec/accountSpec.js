@@ -30,9 +30,8 @@ describe("account", function() {
       expect(account.showBalance()).toEqual(5)
     })
 
-    it("adds deposit to history", function() {
-      injectedAccount.deposit(5)
-      expect(history.add).toHaveBeenCalled()
+    it("has an empty history by default", function() {
+      expect(injectedAccount.history.length).toEqual(0)
     })
 
     it("adds date to history", function() {
