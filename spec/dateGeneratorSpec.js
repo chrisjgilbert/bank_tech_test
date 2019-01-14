@@ -7,15 +7,15 @@ describe("dateGenerator", function() {
   })
 
   it("returns the current day", function() {
-    expect(dateGenerator.getDay()).toEqual(14)
+    expect(dateGenerator._getDay()).toEqual(14)
   })
 
   it("returns the current month", function() {
-    expect(dateGenerator.getMonth()).toEqual(1)
+    expect(dateGenerator._getMonth()).toEqual(1)
   })
 
   it("returns the current year", function() {
-    expect(dateGenerator.getYear()).toEqual(2019)
+    expect(dateGenerator._getYear()).toEqual(2019)
   })
 
   it("returns full date", function() {

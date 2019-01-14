@@ -1,38 +1,38 @@
 (function(exports) {
 
   function DateGenerator(date = new Date) {
-    this.date = date
+    this._date = date
   }
 
   DateGenerator.prototype = {
-    getDay: function() {
-      return this.date.getDate()
+    _getDay: function() {
+      return this._date.getDate()
     },
 
-    getMonth: function() {
-      return this.date.getMonth() + 1
+    _getMonth: function() {
+      return this._date.getMonth() + 1
     },
 
-    getYear: function() {
-      return this.date.getFullYear()
+    _getYear: function() {
+      return this._date.getFullYear()
     },
 
     getFullDate: function() {
       return [
-        this.getDay(),
+        this._getDay(),
         "/",
         this._formatMonth(),
         "/",
-        this.getYear()
+        this._getYear()
       ].join("")
     },
 
     _formatMonth: function() {
-      var month = this.getMonth()
+      var month = this._getMonth()
       if (month < 10) {
-        return "0" + this.getMonth()
+        return "0" + this._getMonth()
       } else {
-        return this.getMonth()
+        return this._getMonth()
       }
     }
   }
