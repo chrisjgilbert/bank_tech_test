@@ -7,6 +7,10 @@
   DateGenerator.prototype = {
     getDay: function() {
       return this.date.getDate()
+    },
+
+    getMonth: function() {
+      return this.date.getMonth() + 1
     }
   }
 
