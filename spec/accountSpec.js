@@ -30,10 +30,10 @@ describe("account", function() {
 
     it("adds the transaction date to the account history", function() {
       var history = jasmine.createSpyObj('history',['add']);
-      var transaction = jasmine.createSpyObj('transaction', ['getDate', 'showAmount', 'showType'])
-      var accountWithHistory = new Account(history, transaction)
+      var transaction = jasmine.createSpyObj('transaction', ['showDate'])
+      var account = new Account(history, transaction)
       account.deposit(5)
-      expect(transaction.getDate).toHaveBeenCalled()
+      expect(transaction.showDate).toHaveBeenCalled()
     })
   })
 
