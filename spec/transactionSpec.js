@@ -15,4 +15,9 @@ describe("transaction", function() {
     expect(debit.showType()).toEqual("debit")
   })
 
+  it("has an amount", function() {
+    credit = new Transaction("credit", 10)
+    expect(credit.showAmount()).toEqual(10)
+  })
+
 })
