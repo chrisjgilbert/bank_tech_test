@@ -21,7 +21,8 @@ describe("account", function() {
       expect(account.showBalance()).toEqual(5)
     })
 
-    it("creates a new transaction", function() {    spyOn(Transaction.prototype, 'new');
+    it("creates a new transaction", function() {
+     transaction = spyOn(Transaction.prototype, 'new');
      newAccount = new Account(transaction)
      account.deposit(5)
      expect(transaction.new).toHaveBeenCalled()
