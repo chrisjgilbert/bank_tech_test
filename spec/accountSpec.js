@@ -17,14 +17,12 @@ describe("account", function() {
 
   describe("deposit", function() {
 
-    var history;
     var dateGenerator;
     var injectedAccount;
 
     beforeEach(function() {
-      history = jasmine.createSpyObj('history', ['add'])
       dateGenerator = jasmine.createSpyObj('dateGenerator', ['getFullDate'])
-      injectedAccount = new Account(history, dateGenerator)
+      injectedAccount = new Account(dateGenerator)
     })
 
     it("adds money to the balance", function() {
