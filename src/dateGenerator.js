@@ -11,6 +11,10 @@
 
     getMonth: function() {
       return this.date.getMonth() + 1
+    },
+
+    getYear: function() {
+      return this.date.getFullYear();
     }
   }
 

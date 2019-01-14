@@ -15,7 +15,7 @@ describe("dateGenerator", function() {
   })
 
   it("returns the current year", function() {
-    expect(dateGenerator.getMonth()).toEqual(2019)
+    expect(dateGenerator.getYear()).toEqual(2019)
   })
 
 })
