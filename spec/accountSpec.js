@@ -6,6 +6,10 @@ describe("account", function() {
     account = new Account()
   })
 
+  it("can be instantiated", function() {
+    expect(account instanceof Account).toBeTruthy();
+  })
+
   it("has a starting balance of 0", function() {
     expect(account.showBalance()).toEqual(0)
   })
