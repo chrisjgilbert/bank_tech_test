@@ -1,3 +1,4 @@
+"use strict";
 (function(exports) {
 
   function DateGenerator(date = new Date) {

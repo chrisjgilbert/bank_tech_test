@@ -1,3 +1,4 @@
+"use strict";
 describe("account", function() {
 
   var account;
