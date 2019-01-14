@@ -7,7 +7,7 @@ describe("accountHistory", function() {
   })
 
   it("can be instantiated", function() {
-    expect(accountHistory).toBeTypeOf(AccountHistory)
+    expect(accountHistory instanceof AccountHistory).toBeTruthy();
   })
 
 })
