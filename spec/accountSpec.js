@@ -41,14 +41,9 @@ describe("account", function() {
       expect(dateGenerator.getFullDate).toHaveBeenCalled()
     })
 
-    it("adds deposit and date to history", function() {
-      injectedAccount.deposit(20)
-      expect(injectedAccount.getHistory()).toEqual([["01/01/1998", 20]])
-    })
-
     it("adds deposit amount, date, empty string and balance to history", function() {
       injectedAccount.deposit(100)
-      expect(injectedAccount.getHistory()).toEqual(["01/01/1998", 100, "", 100])
+      expect(injectedAccount.getHistory()).toEqual([["01/01/1998", 100, "", 100]])
     })
   })
 

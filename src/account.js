@@ -13,7 +13,9 @@
       this._addToHistory(
         [
           this._dateGenerator.getFullDate(),
-          amount
+          amount,
+          "",
+          this._balance
         ]
       )
     },
