@@ -24,4 +24,11 @@ describe("account", function() {
     })
   })
 
+  describe("showBalance", function() {
+    it("returns the current balance", function() {
+      account.deposit(5)
+      expect(account.showBalance()).toEqual(5)
+    })
+  })
+
 })
