@@ -20,18 +20,18 @@ describe("account", function() {
   })
 
   it("has a starting balance of 0", function() {
-    expect(account.showBalance()).toEqual(0)
+    expect(account._balance).toEqual(0)
   })
 
   describe("deposit", function() {
 
     it("adds money to the balance", function() {
       account.deposit(5)
-      expect(account.showBalance()).toEqual(5)
+      expect(account._balance).toEqual(5)
     })
 
     it("has an empty history by default", function() {
-      expect(injectedAccount.getHistory()).toEqual([])
+      expect(injectedAccount._history).toEqual([])
     })
 
     it("adds date to history", function() {
@@ -41,33 +41,33 @@ describe("account", function() {
 
     it("adds deposit amount, date, empty string and balance to history", function() {
       injectedAccount.deposit(100)
-      expect(injectedAccount.getHistory()).toEqual([["01/01/1998", 100, "", 100]])
+      expect(injectedAccount._history).toEqual([["01/01/1998", 100, "", 100]])
     })
   })
 
   describe("withdraw", function() {
     it("deducts money from the balance", function() {
       account.withdraw(5)
-      expect(account.showBalance()).toEqual(-5)
+      expect(account._balance).toEqual(-5)
     })
 
     it("adds withdraw amount, date, empty string and balance to history", function() {
       injectedAccount.withdraw(100)
-      expect(injectedAccount.getHistory()).toEqual([["01/01/1998", "",  100, -100]])
+      expect(injectedAccount._history).toEqual([["01/01/1998", "",  100, -100]])
     })
   })
 
   describe("showBalance", function() {
     it("returns the current balance", function() {
       account.deposit(5)
-      expect(account.showBalance()).toEqual(5)
+      expect(account._balance).toEqual(5)
     })
   })
 
   describe("printStatement", function() {
     it("tells the statement to print", function() {
       injectedAccount.printStatement()
-      expect(statement.print).toHaveBeenCalledWith(injectedAccount.getHistory())
+      expect(statement.print).toHaveBeenCalledWith(injectedAccount._history)
     })
   })
 

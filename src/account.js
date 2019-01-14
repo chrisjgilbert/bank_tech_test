@@ -33,16 +33,8 @@
       )
     },
 
-    showBalance: function() {
-      return this._balance
-    },
-
-    getHistory: function() {
-      return this._history
-    },
-
     printStatement: function() {
-      this._statement.print(this.getHistory())
+      this._statement.print(this._history)
     },
 
     _addToHistory: function(transaction) {
