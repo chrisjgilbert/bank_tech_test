@@ -10,7 +10,7 @@
   Account.prototype = {
     deposit: function(amount) {
       this._balance += amount
-      this._history.push(amount)
+      this._addToHistory(amount)
       this._dateGenerator.getFullDate()
     },
 
@@ -24,6 +24,10 @@
 
     getHistory: function() {
       return this._history
+    },
+
+    _addToHistory: function(transaction) {
+      this._history.push(transaction)
     }
   }
 
