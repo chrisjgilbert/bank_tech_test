@@ -11,12 +11,12 @@
   Account.prototype = {
     deposit: function(amount) {
       this._balance += amount
-      this._addToHistory(this._formatCreditTransaction(amount))
+      this._addToHistory(this._addCreditTransaction(amount))
     },
 
     withdraw: function(amount) {
       this._balance -= amount
-      this._addToHistory(this._formatDebitTransaction(amount))
+      this._addToHistory(this._addDebitTransaction(amount))
     },
 
     printStatement: function() {
@@ -27,7 +27,7 @@
       this._history.push(transaction)
     },
 
-    _formatDebitTransaction: function(amount) {
+    _addDebitTransaction: function(amount) {
       return [
         this._dateGenerator.getFullDate(),
         "",
@@ -36,7 +36,7 @@
       ]
     },
 
-    _formatCreditTransaction: function(amount) {
+    _addCreditTransaction: function(amount) {
       return [
         this._dateGenerator.getFullDate(),
         amount,
