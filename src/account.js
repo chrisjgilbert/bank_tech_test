@@ -1,21 +1,15 @@
 "use strict";
 (function(exports) {
 
-  function Account(history = new History, transaction = new Transaction) {
+  function Account(history = new History) {
     this._balance = 0
     this.history = history
-    this._transaction = transaction
   }
 
   Account.prototype = {
     deposit: function(amount) {
       this._balance += amount
-      this.history.add(
-        [
-          this._transaction.showDate(),
-          this._transaction.showAmount()
-        ]
-      )
+      this.history.add()
     },
 
     withdraw: function(amount) {

@@ -16,36 +16,11 @@ describe("account", function() {
   })
 
   describe("deposit", function() {
-
-    var history;
-    var transaction;
-    var injectedAccount;
-
-    beforeEach(function() {
-      history = jasmine.createSpyObj('history',['add']);
-      transaction = jasmine.createSpyObj('transaction', ['showDate', 'showAmount'])
-      injectedAccount = new Account(history, transaction)
-    })
-
     it("adds money to the balance", function() {
       account.deposit(5)
       expect(account.showBalance()).toEqual(5)
     })
 
-    it("adds a transaction to the account history", function() {
-      injectedAccount.deposit(5)
-      expect(history.add).toHaveBeenCalled()
-    })
-
-    it("adds the transaction date to the account history", function() {
-      injectedAccount.deposit(5)
-      expect(transaction.showDate).toHaveBeenCalled()
-    })
-
-    it("adds the transaction amount to the account history", function() {
-      injectedAccount.deposit(5)
-      expect(transaction.showAmount).toHaveBeenCalled()
-    })
   })
 
   describe("withdraw", function() {
