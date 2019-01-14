@@ -4,7 +4,7 @@ describe("printer", function() {
   var printer;
 
   beforeEach(function() {
-    printer = new Printer
+    printer = new Printer()
   })
 
   it("stores the statement header", function() {
