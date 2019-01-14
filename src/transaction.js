@@ -1,9 +1,10 @@
 "use strict";
 (function(exports) {
 
-  function Transaction(type, amount) {
+  function Transaction(type, amount, dateGenerator = new DateGenerator) {
     this._type = type
     this._amount = amount
+    this._dateGenerator = dateGenerator
   }
 
   Transaction.prototype = {
@@ -13,6 +14,10 @@
 
     showAmount: function() {
       return this._amount
+    },
+
+    showDate: function() {
+      return this._dateGenerator.getFullDate()
     }
   }
 
