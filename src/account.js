@@ -16,10 +16,10 @@
 
     withdraw: function(amount) {
       if (this._hasEnoughMoneyToWithDraw(amount)) {
-        this._balance -= amount
+        this._deductDebit(amount)
         this._addToHistory(this._addDebitTransaction(amount))
       } else {
-        throw new Error('You dont have enough money in your account!')
+        this._throwBalanceError()
       }
     },
 
@@ -51,6 +51,14 @@
 
     _hasEnoughMoneyToWithDraw: function(amount) {
       if (this._balance - amount >= 0) return true
+    },
+
+    _throwBalanceError: function() {
+      throw new Error('You dont have enough money in your account!')
+    },
+
+    _deductDebit: function(amount) {
+      this._balance -= amount
     }
   }
 
