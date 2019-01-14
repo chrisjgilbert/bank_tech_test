@@ -27,6 +27,14 @@ describe("account", function() {
       accountWithHistory.deposit(5)
       expect(history.add).toHaveBeenCalled()
     })
+
+    it("adds the transaction date to the account history", function() {
+      var history = jasmine.createSpyObj('history',['add']);
+      var transaction = jasmine.createSpyObj('transaction', ['getDate', 'showAmount', 'showType'])
+      var accountWithHistory = new Account(history, transaction)
+      account.deposit(5)
+      expect(transaction.getDate).toHaveBeenCalled()
+    })
   })
 
   describe("withdraw", function() {
