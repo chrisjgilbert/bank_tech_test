@@ -21,6 +21,12 @@ describe("account", function() {
       expect(account.showBalance()).toEqual(5)
     })
 
+    it("adds date to history", function() {
+      var date  = jasmine.createSpyObj('date', ['getFullDate'])
+      var injectedAccount = new Account(date)
+      account.deposit(5)
+      expect(date.getFullDate).toHaveBeenCalled()
+    })
   })
 
   describe("withdraw", function() {
