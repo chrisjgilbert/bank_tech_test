@@ -11,11 +11,11 @@ describe("printer", function() {
     expect(statement.showHeader()).toEqual(["DATE", "DEBIT", "CREDIT", "BALANCE"])
   })
 
-  it("pretty prints out the statement", function() {
-    var log = [["14/01/2019", "", "10", "0"]]
-    expect(statement.print(log)).toEqual(
-      "14/01/2019 ||  || 10 || 0"
-    )
+  it("prints out the statement", function() {
+    var history = [["01/01/1998", 100, "", 100]]
+    spyOn(window.console, 'log');
+    statement.print(history)
+    expect(console.log).toHaveBeenCalled()
   })
 
 })
